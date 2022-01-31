@@ -21,14 +21,6 @@ def add_pokemon():
     return response
 
 
-@app.route("/pokedex/<int:id>", methods=["PUT"])
-def update_pokemon(id):
-    request_data = request.json()
-    Pokemon.update_pokemon(id, request_data["name"], request_data["dex"], request_data["type"])
-    response = Response("Pokemon Updated", status=200, mimetype="application/json")
-    return response
-
-
 @app.route("/pokedex/<int:id>", methods=["DELETE"])
 def remove_pokemon(id):
     Pokemon.delete_pokemon(id)
