@@ -25,12 +25,6 @@ class Pokemon(db.Model):
     def get_pokemon(_id):
         return [Pokemon.json(Pokemon.query.filter_by(id=_id).first())]
 
-    def update_pokemon(_id, _name, _dex, _type):
-        pokemon_to_update = Pokemon.query.filter_by(id=_id).first()
-        pokemon_to_update.name = _name
-        pokemon_to_update.dex = _dex
-        pokemon_to_update.type = _type
-        db.session.commit()
 
     def delete_pokemon(_id):
         Pokemon.query.filter_by(id=_id).delete()
